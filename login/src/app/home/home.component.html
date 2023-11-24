@@ -1,0 +1,56 @@
+<div class="container col-md-5">
+    <div class="row mt-3">
+        <label for="name">Name</label>
+        <input type="text" id="name" [(ngModel)]="user.UserName" class="form-control">
+    </div>
+    <div class="row mt-3">
+        <label for="email">Email Id</label>
+        <input type="text" id="email" [(ngModel)]="user.UserEmail" class="form-control">
+    </div>
+    <div class="row mt-3">
+        <label for="num">Mobile Number</label>
+        <input type="text" id="num" [(ngModel)]="user.UserMobileNumber" class="form-control">
+    </div>
+    <div class="row mt-3">
+        <label for="password">Password</label>
+        <input type="text" id="password" [(ngModel)]="user.UserPassword" class="form-control">
+    </div>
+    <div class="row mt-3">
+        <label for="cPass">Confirm Password</label>
+        <input type="text" id="cPass" [(ngModel)]="user.UserRepeatPassword" class="form-control">
+    </div>
+    <div class="row mt-3">
+        <button class="btn btn-primary col-4" (click)="create()">Save</button>
+    </div>
+
+</div>
+<div class="text-center fw-bolder h1 my-3 mb-5">User's Details</div>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>S.NO</th>
+        <th>Account ID</th>
+        <th>Name</th>
+        <th>Email Id </th>
+        <th>Mobile Number</th>
+        <th>Password</th>
+        <th>Confirm Password </th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let home of homeArray;let i =index">
+        <th> {{i+1}} </th>
+        <th> {{home.id}} </th>
+        <td>  {{home.name}} </td>
+        <td> {{home.email}} </td>
+        <td> {{home.mobileNumber}} </td>
+        <td> {{home.password}} </td>
+        <td> {{home.confirm_Password}} </td>
+        <!-- <td><button class="btn btn-warning" (click)="updateset(home)" >Edit</button></td> -->
+        <td><button class="btn btn-warning" (click)="edit(home.id)" >Edit</button></td>
+        <td><Button class="btn btn-danger" (click)="remove(home.id)">Delete</Button></td>
+      </tr>
+    </tbody>
+  </table>
